@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Square from './components/Square';
 import {nanoid} from 'nanoid';
+import Confetti  from 'react-confetti';
 
 function App() {
   let _generateNewDice = () => {
@@ -52,6 +53,8 @@ function App() {
   }, [numbers])
 
   return (
+    <>
+    { rollTheDice && <Confetti /> }
     <div className="App">
       <main>
         <h1 className="title">Roll the dice</h1>
@@ -64,6 +67,7 @@ function App() {
         <button id="roll-dice" onClick={rollDice} className='roll-dice'>{rollTheDice ? 'New Game' : 'Roll Dice'}</button>
       </main>
     </div>
+    </>
   );
 }
 
